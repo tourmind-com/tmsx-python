@@ -92,6 +92,3 @@ uv sync                 # install deps incl. dev
 uv run python examples/canonical_flow.py
 ```
 
-## Status
-
-🟡 Alpha. See TECH-1095 in the PM system and `TMSX_SDK_PLAN.md` at the repo root.
