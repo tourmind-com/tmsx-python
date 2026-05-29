@@ -21,12 +21,8 @@ dependencies = [
   "pyyaml>=6.0",
 ]
 
-[project.optional-dependencies]
-mcp = ["mcp>=1.0.0"]
-
 [project.scripts]
 tmsx-test-runner = "tmsx_test_runner.cli:main"
-tmsx-mcp = "tmsx_mcp.server:main"
 
 [project.urls]
 Homepage = "https://tourmind.com"
