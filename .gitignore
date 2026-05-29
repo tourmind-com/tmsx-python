@@ -26,8 +26,6 @@ env/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.pyre/
-.pytype/
 .tox/
 .nox/
 
@@ -39,7 +37,6 @@ env/
 .coverage.*
 htmlcov/
 coverage.xml
-*.cover
 .hypothesis/
 
 # Notebooks
@@ -54,7 +51,6 @@ coverage.xml
 
 # OS
 .DS_Store
-Thumbs.db
 
 # Logs
 *.log

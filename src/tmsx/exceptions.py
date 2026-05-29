@@ -59,7 +59,7 @@ def from_error_code(
 ) -> TMSXError:
     """Construct the most-specific exception class for an `Error.ErrorCode`.
 
-    See `sdk/AUTH.md` for the error-code table.
+    See `https://github.com/tourmind-com/tmsx-platform/blob/main/AUTH.md` for the error-code table.
     """
     if code in {"101", "102", "103"}:
         return TMSXValidationError(message, code=code, transaction_id=transaction_id)

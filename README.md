@@ -25,7 +25,7 @@ with Client(
 
 The SDK injects the TMSX auth scheme (`X-Agent-Code` / `X-Username` headers + the
 `RequestHeader` body envelope with `Password`, `RequestTime`, `TransactionID`) on
-every request — see `sdk/AUTH.md`. Callers never touch `RequestHeader`.
+every request — see `https://github.com/tourmind-com/tmsx-platform/blob/main/AUTH.md`. Callers never touch `RequestHeader`.
 
 ## Async
 
@@ -54,7 +54,7 @@ log correlation and support tickets.
 ## Layout
 
 ```
-sdk/python/
+tmsx-python/
 ├── pyproject.toml
 ├── src/tmsx/
 │   ├── __init__.py        # public exceptions + version
@@ -64,18 +64,18 @@ sdk/python/
 │   │   └── _client.py     # facade + auth transport
 │   └── _generated/        # AUTO-GENERATED — do not edit by hand
 ├── examples/canonical_flow.py
-└── tests/                 # TODO — TECH-1100 harness will live here
+└── tests/                 # TODO — harness will live here
 ```
 
 ## Regenerating the low-level client
 
-The `tmsx._generated` package is produced from `sdk/tmsx-hotel-spec.yaml` by
+The `tmsx._generated` package is produced from `https://github.com/tourmind-com/tmsx-platform/blob/main/spec/tmsx-hotel-spec.yaml` by
 `openapi-python-client`. To regenerate after the spec changes:
 
 ```bash
-cd sdk/python
+# (you are already in tmsx-python/ — no cd needed)
 uvx --from openapi-python-client openapi-python-client generate \
-  --path ../tmsx-hotel-spec.yaml \
+  --path https://raw.githubusercontent.com/tourmind-com/tmsx-platform/main/spec/tmsx-hotel-spec.yaml \
   --config codegen-config.yaml \
   --meta none --overwrite \
   --output-path src/tmsx/_generated
@@ -87,8 +87,11 @@ class names change — see the import block at the top of that file.
 ## Build / install locally
 
 ```bash
-cd sdk/python
+# (you are already in tmsx-python/ — no cd needed)
 uv sync                 # install deps incl. dev
 uv run python examples/canonical_flow.py
 ```
 
+## Status
+
+🟡 Alpha. 

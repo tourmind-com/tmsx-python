@@ -6,7 +6,7 @@ Wraps the auto-generated `tmsx._generated` low-level client with:
 - translation of body-level `Error.ErrorCode` envelopes into Python exceptions
 - ergonomic kwargs-based call sites that mirror the operation contract
 
-See `sdk/AUTH.md` for the auth scheme this implements.
+See `https://github.com/tourmind-com/tmsx-platform/blob/main/AUTH.md` for the auth scheme this implements.
 """
 
 from __future__ import annotations

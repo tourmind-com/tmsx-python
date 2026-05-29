@@ -14,7 +14,7 @@ from tmsx.hotel import Client
 
 
 def main() -> None:
-    # Public sandbox credentials — see sdk/AUTH.md.
+    # Public sandbox credentials — see https://github.com/tourmind-com/tmsx-platform/blob/main/AUTH.md.
     with Client(
         agent_code="tms_test",
         username="tms_test",
@@ -31,7 +31,7 @@ def main() -> None:
         # 2-9) The full flow (hotel-list → room-type → search → check-rate → create →
         # search-order → query-bookings → cancel) is intentionally NOT exercised here
         # because the sandbox response shape for these is being verified case-by-case
-        # against the test-case harness (TECH-1100). The Client surface for every
+        # against the test-case harness. The Client surface for every
         # one of these is in place — see `tmsx.hotel.Client.{list_hotels, list_room_types,
         # search_hotel, check_room_rate, create_order, search_order, query_bookings,
         # cancel_order}` — and each accepts the generated request models.
