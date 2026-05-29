@@ -1,0 +1,50 @@
+[project]
+name = "tmsx"
+version = "0.1.0"
+description = "Python SDK for the Tourmind TMS hotel API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary — Shenzhen Tourmind International Travel Service Co., Ltd." }
+authors = [{ name = "Tourmind", email = "developer@tourmind.cn" }]
+keywords = ["tourmind", "tmsx", "hotel", "travel", "api", "sdk"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+dependencies = [
+  "httpx>=0.23.0,<1",
+  "attrs>=21.3.0",
+  "python-dateutil>=2.8.0",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0.0"]
+
+[project.scripts]
+tmsx-test-runner = "tmsx_test_runner.cli:main"
+tmsx-mcp = "tmsx_mcp.server:main"
+
+[project.urls]
+Homepage = "https://tourmind.com"
+Documentation = "https://developers.tourmind.cn"
+Source = "https://github.com/tourmind-com/tmsx-python"
+Issues = "https://github.com/tourmind-com/tmsx-python/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tmsx", "src/tmsx_test_runner", "src/tmsx_mcp"]
+
+[tool.uv]
+dev-dependencies = [
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.0",
+  "ruff>=0.5.0",
+  "mypy>=1.10.0",
+]

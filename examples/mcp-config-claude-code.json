@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "tmsx": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/liuhuiyang/projects-root/tourmind/tms-doc/sdk/python",
+        "run",
+        "tmsx-mcp"
+      ]
+    }
+  }
+}
