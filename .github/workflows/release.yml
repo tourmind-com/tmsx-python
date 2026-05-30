@@ -1,0 +1,27 @@
+name: release
+
+# On merge to main, bump the SDK version (default from the consumed spec's
+# release-bump.txt) and publish to PyPI via trusted publishing (OIDC, no token).
+# Configure the trusted publisher at https://pypi.org/manage/account/publishing/
+# for project `tmsx`, workflow file `release.yml`.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'spec/**'
+      - 'pyproject.toml'
+  workflow_dispatch:
+
+jobs:
+  publish-pypi:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write     # PyPI trusted publisher (OIDC)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Bump version (default from spec release-bump.txt)
+        run: uv version --bump "$(cat spec/release-bump.txt 2>/dev/null || echo patch)"
+      - run: uv build
+      - run: uv publish --trusted-publishing automatic
